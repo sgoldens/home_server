@@ -1,6 +1,7 @@
 // Incoming requests hit passport for strategies 1 or 2
 // #1 - Verify user with a JWT
 // #2 - Verify user with a username and password
+// #3 - Local strategy
 // Then hand off to the Route Handler
 
 const passport = require('passport');
@@ -8,6 +9,15 @@ const User = require('../models/user');
 const config = require('../config');
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
+const LocalStrategy = require('passport-local');
+
+// Create local strategy
+const localOptions = { usernameField: 'email' };
+const localLogin = new LocalStrategy(localOptions, function(email, password, done) {
+  // Verify this username and password, call done with the user
+  // if it is the correct username and password
+  // otherwise, call done with false
+});
 
 // Setup options for JWT Strategy
 const jwtOptions = {

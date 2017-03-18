@@ -1,3 +1,5 @@
+// **** Main starting point of application
+// Native Node.js module for handling HTTP requests
 const http = require('http');
 // Parse response and routing
 const express = require('express');
@@ -10,7 +12,7 @@ const app = express();
 const router = require('./router');
 const mongoose = require('mongoose');
 
-// DB Setup
+// **** DB Setup
 mongoose.connect('mongodb://localhost:home_auth/home_auth')
 
 // **** App Setup

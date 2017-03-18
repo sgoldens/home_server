@@ -18,5 +18,8 @@ module.exports = function (app) {
   });
 
   // HTTP POST '/signup'
-  app.post('/signup', Authentication.signup);
+  app.post('/signup', Authentication.signup);\
+
+  // HTTP 
+
 };
