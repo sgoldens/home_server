@@ -4,14 +4,22 @@
 
 const Authentication = require('./controllers/authentication');
 
+const passportService = require('./services/passport');
+const passport  = require('passport');
+
+const requireAuth = passport.authenticate('jwt', { session: false });
+
 module.exports = function (app) {
 // HTTP GET '/'
 
-  app.get('/', (request, response, next) => {
+  app.get('/', requireAuth, (request, response) => {
   // When the HTTP GET request is received, send back...
-    response.send(['waisjdg', 'stone', 'CO2water']);
+    response.send({ hi: 'there' });
   });
 
   // HTTP POST '/signup'
-  app.post('/signup', Authentication.signup);
+  app.post('/signup', Authentication.signup);\
+
+  // HTTP 
+
 };
