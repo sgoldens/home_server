@@ -1,3 +1,5 @@
+[![JWT](http://jwt.io/assets/badge-compatible.svg)](http://jwt.io/assets/badge-compatible.svg)
+
 # home_server
 
 This is an auth server for the homepage project I'm working on as an exploratory exercise.
@@ -10,6 +12,7 @@ It employs:
 - morgan
 - body-parser
 - nodemon
+- bluebird
 
 This site is under construction, please visit again soon.
 

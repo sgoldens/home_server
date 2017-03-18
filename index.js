@@ -1,5 +1,3 @@
-// **** Main starting point of application
-// Native Node.js module for handling HTTP requests
 const http = require('http');
 // Parse response and routing
 const express = require('express');

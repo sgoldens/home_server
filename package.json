@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "db": "brew services start mongodb",
     "dev": "nodemon index.js"
   },
   "author": "",
@@ -16,6 +16,9 @@
     "jwt-simple": "^0.5.1",
     "mongoose": "^4.9.0",
     "morgan": "^1.8.1",
+    "nodemon": "^1.11.0"
+  },
+  "devDependencies": {
     "nodemon": "^1.11.0"
   }
 }
