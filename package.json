@@ -16,7 +16,9 @@
     "jwt-simple": "^0.5.1",
     "mongoose": "^4.9.0",
     "morgan": "^1.8.1",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
