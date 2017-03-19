@@ -12,7 +12,7 @@ It employs:
 - morgan
 - body-parser
 - nodemon
-- bluebird
+- passport(jwt)
 
 This site is under construction, please visit again soon.
 

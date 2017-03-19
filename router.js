@@ -8,17 +8,18 @@ const passportService = require('./services/passport');
 const passport  = require('passport');
 
 const requireAuth = passport.authenticate('jwt', { session: false });
+const requireSignin = passport.authenticate('local', { session: false });
 
 module.exports = function (app) {
-// HTTP GET '/'
-
+  // HTTP GET '/'
   app.get('/', requireAuth, (request, response) => {
   // When the HTTP GET request is received, send back...
     response.send({ hi: 'there' });
   });
 
-  // HTTP POST '/signup'
-  app.post('/signup', Authentication.signup);\
+  // HTTP POST '/signup', with requireSignin as middleware for signin 
+  app.post('/signin', requireSignin, Authentication.signin);
+  app.post('/signup', Authentication.signup);
 
   // HTTP 
 

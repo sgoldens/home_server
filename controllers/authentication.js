@@ -12,6 +12,12 @@ function tokenForUser(user) {
   return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
 }
 
+exports.signin = function(request, response, next) {
+  // User has already had their email and password auth'd
+  // We just need to give them a token
+  response.send({ token: tokenForUser(request.user) });
+}
+
 // signup controller receives the POST request and processes it for response
 exports.signup = function (request, response, next) {
   const email = request.body.email;
