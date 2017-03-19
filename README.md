@@ -13,8 +13,3 @@ It employs:
 - body-parser
 - nodemon
 - passport(jwt)
-
-This site is under construction, please visit again soon.
-
-If you've learned from this collection, please consider Stephen Grider's Udemy courses. I've used his
-learning materials in the construction of this project.
