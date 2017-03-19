@@ -11,7 +11,7 @@ git clone git@github.com:sgoldens/home_server
 npm install
 ```
 #### 2: Open ```/config.js``` and uncomment the line for your ```secret``` key. Enter something unique and hard to guess as its value. Save and close.
-#### 3: Install MongoDB from their site https://www.mongodb.com/download-center?jmp=nav or homebrew if you're on macOS X installation using homebrew:
+#### 3: Install MongoDB from their site https://www.mongodb.com/download-center?jmp=nav or homebrew if you're on macOS X:
 ```
 brew update
 brew install mongodb
