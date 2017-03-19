@@ -4,13 +4,25 @@
 An authentication and authorization server employing JavaScript Web Tokens instead of cookies, and bcrypt'd encrypted passwords.
 
 ## To use this repository project:
-1: clone the repo down, '''npm install''' in the project root directory.
-2: Open '''config.js''' in the project root directory, uncomment the line for your '''secret''' key, and enter something unique and hard to guess as its value. Save and close.
-3: Install MongoDB
-4: Start the MongoDB server deamon or service, '''mongod'''
-5: In the project root directory, start the server with the command '''npm run dev'''
 
-### Tech stack:
+#### 1: clone the repo down into the project root directory
+```javascript
+git clone git@github.com:sgoldens/home_server
+npm install
+```
+#### 2: Open ```/config.js``` and uncomment the line for your ```secret``` key. Enter something unique and hard to guess as its value. Save and close.
+#### 3: Install MongoDB from their site https://www.mongodb.com/download-center?jmp=nav or homebrew if you're on macOS X installation using homebrew:
+```
+brew update
+brew install mongodb
+mkdir -p /data/db
+```
+Other documentation here: https://docs.mongodb.com/master/tutorial/
+#### 4: Start the MongoDB server service, ```mongod```
+#### 5: In the project root directory, start the server with the command ```npm run dev```
+#### 6: Open your browser and navigate to [http://localhost:8020/](http://localhost:8020/)
+
+##### Tech stack:
   - MongoDB
   - Mongoose (ORM)
   - NodeJS
