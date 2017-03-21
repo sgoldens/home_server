@@ -20,28 +20,29 @@ const requireSignin = passport.authenticate('local', { session: false });
 
 // Server routes
 module.exports = function (app) {
-  // HTTP POST '/signup', with requireSignin as middleware for signin 
+  // HTTP POST '/signup' & 'signin', with requireSignin as middleware for signin 
   app.post('/signin', requireSignin, Authentication.signin);
   app.post('/signup', Authentication.signup);
 
   // HTTP POST '/posts' for adding new posts
-  app.post('/posts', PostController.addPost);
-
+  app.post('/posts', requireAuth, PostController.addPost);
 
   // HTTP GET '/posts' for getting all posts
-  app.get('/posts', PostController.findPosts);
+  app.get('/posts', requireAuth, PostController.findPosts);
   
-  // // HTTP GET '/posts' for getting one post
-  // app.get('/posts/:post', Post.findOne);
+  // HTTP GET '/posts' for getting one post
+  app.get('/posts/:post_id', requireAuth, PostController.findPost);
 
-  // HTTP PUT  '/posts/:post' for updating posts
+  // HTTP PUT '/posts/:post' for updating posts
+  app.put('/posts/:post_id', requireAuth, PostController.updatePost);
 
   // HTTP DELETE  '/posts/:post' for updating posts
+  app.delete('/posts/:post_id', requireAuth, PostController.deletePost);
 
   // HTTP GET '*' "catch all" route on the express server that captures all page requests and direct them to the client.
-  app.get('*', (request, response) => {
+  app.get('*', requireSignin, (request, response) => {
   // When the HTTP GET '*' request is received, send back index.html
-    response.send(path.resolve(__dirname, '../src/index.js'));
+    response.redirect(200, '/posts');
   });
 
 };

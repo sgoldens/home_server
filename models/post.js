@@ -3,7 +3,7 @@ const Schema = mongoose.Schema,
       ObjectId = Schema.ObjectId;
 
 // Define our model
-const postSchema = new Schema({
+const postSchema = new Schema({  
   title:  String,
   text:   String,
   author: String,
