@@ -7,6 +7,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 // Middleware - Logging framework
 const morgan = require('morgan');
+const cors = require('cors');
 // Our server app
 const app = express();
 const router = require('./router');
@@ -17,11 +18,12 @@ mongoose.connect('mongodb://127.0.0.1:27017/blog')
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  // we're connected!
+console.log("we're connected! db.name: " + db.name)
 });
 
 // **** App Setup
 // Debuggging using morgan, logging incoming requests
+app.use(cors());
 app.use(morgan('combined'));
 app.use(bodyParser.json({ type: '*/*' }));
 router(app)

@@ -25,13 +25,13 @@ module.exports = function (app) {
   app.post('/signup', Authentication.signup);
 
   // HTTP POST '/posts' for adding new posts
-  app.post('/posts', requireAuth, PostController.addPost);
+  app.post('/posts', PostController.addPost);
 
   // HTTP GET '/posts' for getting all posts
-  app.get('/posts', requireAuth, PostController.findPosts);
+  app.get('/posts', PostController.findPosts);
   
   // HTTP GET '/posts' for getting one post
-  app.get('/posts/:post_id', requireAuth, PostController.findPost);
+  app.get('/posts/:post_id', PostController.findPost);
 
   // HTTP PUT '/posts/:post' for updating posts
   app.put('/posts/:post_id', requireAuth, PostController.updatePost);
@@ -40,9 +40,9 @@ module.exports = function (app) {
   app.delete('/posts/:post_id', requireAuth, PostController.deletePost);
 
   // HTTP GET '*' "catch all" route on the express server that captures all page requests and direct them to the client.
-  app.get('*', requireSignin, (request, response) => {
+  app.get('*', (request, response) => {
   // When the HTTP GET '*' request is received, send back index.html
-    response.redirect(200, '/posts');
+    response.redirect(302, '/signin');
   });
 
 };
